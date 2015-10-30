@@ -20,6 +20,7 @@ public class Tablero extends Application {
 	private static final int ANCHO_COLUMNA = 80;
 	private static final int ALTURA_BOTON = 40;
 	private static final double RADIO = Math.min(ALTO_FILA, ANCHO_COLUMNA) / 2;
+	private static final double SEPARACION = 3;
 	
 	private CuatroEnLinea juego;
 	private GridPane grilla;
@@ -36,17 +37,23 @@ public class Tablero extends Application {
 		juego = new CuatroEnLinea(filas, columnas, "Jugador 1", "Jugador 2");
 
 		grilla = new GridPane();
-
+		grilla.setVgap(SEPARACION);
+		grilla.setHgap(SEPARACION);
+		
 		for (int columna = 0; columna < columnas; columna++) {
 
 			Button botonSoltarFicha = new Button("Soltar");
 			botonSoltarFicha.setMinHeight(ALTURA_BOTON);
 
 			botonSoltarFicha.setOnAction(new SoltarFicha(tablero, juego, columna));
+			botonSoltarFicha.setMinWidth(ANCHO_COLUMNA);
 			grilla.add(botonSoltarFicha, columna, 0);
 		}
 
-		Scene scene = new Scene(grilla, columnas * ANCHO_COLUMNA, filas * ALTO_FILA + ALTURA_BOTON);
+		double ancho = (columnas * ANCHO_COLUMNA) + ((columnas - 1) * SEPARACION);
+		double alto = (filas * (ALTO_FILA + SEPARACION)) + ALTURA_BOTON + SEPARACION;
+		
+		Scene scene = new Scene(grilla, ancho, alto);
 
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(false);
