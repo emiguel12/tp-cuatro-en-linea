@@ -21,31 +21,35 @@ public class CuatroEnLinea {
 	public void soltarFicha(int columna) {
 
 		posiciones[2][columna] = columna % 2 == 0 ? Posicion.ROJO : Posicion.AMARILLO;
-
-	}
-
-	public Posicion[][] obtenerPosiciones() {
-
-		return posiciones;
 	}
 
 	public int contarFilas() {
+		
 		return posiciones.length;
 	}
 
 	public int contarColumnas() {
+		
 		return posiciones[0].length;
 	}
 
 	public boolean termino() {
+		
 		return (new Random()).nextBoolean();
 	}
 
 	public boolean hayGanador() {
+		
 		return (new Random()).nextBoolean();
 	}
 
 	public String obtenerGanador() {
+		
 		return "jugador 1";
+	}
+
+	public Posicion obtenerPosicion(int fila, int columna) {
+
+		return posiciones[fila][columna];
 	}
 }

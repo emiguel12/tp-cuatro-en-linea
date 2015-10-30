@@ -19,6 +19,7 @@ public class Tablero extends Application {
 	private static final int ALTO_FILA = 80;
 	private static final int ANCHO_COLUMNA = 80;
 	private static final int ALTURA_BOTON = 40;
+	
 	private static final double RADIO = Math.min(ALTO_FILA, ANCHO_COLUMNA) / 2;
 	private CuatroEnLinea juego;
 	private GridPane grilla;
@@ -69,13 +70,13 @@ public class Tablero extends Application {
 
 	public void dibujar() {
 
-		Posicion[][] posiciones = juego.obtenerPosiciones();
-
 		for (int fila = 0; fila < juego.contarFilas(); fila++) {
 
 			for (int columna = 0; columna < juego.contarColumnas(); columna++) {
 
-				grilla.add(new Circle(RADIO, obtenerPintura(posiciones[fila][columna])), columna, fila + 1);
+				Posicion posicion = juego.obtenerPosicion(fila, columna);
+				
+				grilla.add(new Circle(RADIO, obtenerPintura(posicion)), columna, fila + 1);
 			}
 		}
 	}
@@ -85,15 +86,14 @@ public class Tablero extends Application {
 		Paint pintura;
 
 		switch (posicion) {
-		case AMARILLO:
-			pintura = Color.YELLOW;
-			break;
-		case ROJO:
-			pintura = Color.RED;
-			break;
-		default:
-			pintura = Color.WHITE;
-			break;
+			case AMARILLO:
+				pintura = Color.YELLOW;
+				break;
+			case ROJO:
+				pintura = Color.RED;
+				break;
+			default:
+				pintura = Color.WHITE;
 		}
 
 		return pintura;
