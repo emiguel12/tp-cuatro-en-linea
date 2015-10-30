@@ -4,9 +4,13 @@ import java.util.Random;
 
 public class CuatroEnLinea {
 
-	Posicion[][] posiciones;
+	private Posicion[][] posiciones;
+	
+	private String jugadorRojo;
+	
+	private String jugadorAmarillo;
 
-	public CuatroEnLinea(int filas, int columnas) {
+	public CuatroEnLinea(int filas, int columnas, String jugadorRojo, String jugadorAmarillo) {
 
 		posiciones = new Posicion[filas][columnas];
 		for (int fila = 0; fila < filas; fila++) {
@@ -15,7 +19,9 @@ public class CuatroEnLinea {
 				posiciones[fila][columna] = Posicion.VACIO;
 			}
 		}
-
+		
+		this.jugadorRojo = jugadorRojo;
+		this.jugadorAmarillo = jugadorAmarillo;
 	}
 
 	public void soltarFicha(int columna) {
@@ -45,7 +51,7 @@ public class CuatroEnLinea {
 
 	public String obtenerGanador() {
 		
-		return "jugador 1";
+		return (new Random()).nextBoolean() ? jugadorAmarillo : jugadorRojo;
 	}
 
 	public Posicion obtenerPosicion(int fila, int columna) {

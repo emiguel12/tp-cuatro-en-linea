@@ -19,8 +19,8 @@ public class Tablero extends Application {
 	private static final int ALTO_FILA = 80;
 	private static final int ANCHO_COLUMNA = 80;
 	private static final int ALTURA_BOTON = 40;
-	
 	private static final double RADIO = Math.min(ALTO_FILA, ANCHO_COLUMNA) / 2;
+	
 	private CuatroEnLinea juego;
 	private GridPane grilla;
 	private Stage ventana;
@@ -30,38 +30,32 @@ public class Tablero extends Application {
 
 		ventana = primaryStage;
 		
-		try {
+		int filas = 7;
+		int columnas = 7;
+		Tablero tablero = this;
+		juego = new CuatroEnLinea(filas, columnas, "Jugador 1", "Jugador 2");
 
-			int filas = 7;
-			int columnas = 7;
-			Tablero tablero = this;
-			juego = new CuatroEnLinea(filas, columnas);
+		grilla = new GridPane();
 
-			grilla = new GridPane();
+		for (int columna = 0; columna < columnas; columna++) {
 
-			for (int columna = 0; columna < columnas; columna++) {
+			Button botonSoltarFicha = new Button("Soltar");
+			botonSoltarFicha.setMinHeight(ALTURA_BOTON);
 
-				Button lanzarFicha = new Button("Ficha acá");
-				lanzarFicha.setMinHeight(ALTURA_BOTON);
-
-				lanzarFicha.setOnAction(new SoltarFicha(tablero, juego, columna));
-				grilla.add(lanzarFicha, columna, 0);
-			}
-
-			Scene scene = new Scene(grilla, columnas * ANCHO_COLUMNA, filas * ALTO_FILA + ALTURA_BOTON);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-
-			primaryStage.setScene(scene);
-			primaryStage.setResizable(false);
-			primaryStage.setTitle("Cuatro en línea");
-			dibujar();
-
-			primaryStage.show();
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
+			botonSoltarFicha.setOnAction(new SoltarFicha(tablero, juego, columna));
+			grilla.add(botonSoltarFicha, columna, 0);
 		}
+
+		Scene scene = new Scene(grilla, columnas * ANCHO_COLUMNA, filas * ALTO_FILA + ALTURA_BOTON);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+
+		primaryStage.setScene(scene);
+		primaryStage.setResizable(false);
+		primaryStage.setTitle("Cuatro en línea");
+		dibujar();
+
+		primaryStage.show();
+
 	}
 
 	public static void main(String[] args) {
