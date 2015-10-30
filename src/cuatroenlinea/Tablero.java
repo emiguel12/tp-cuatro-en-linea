@@ -47,7 +47,6 @@ public class Tablero extends Application {
 		}
 
 		Scene scene = new Scene(grilla, columnas * ANCHO_COLUMNA, filas * ALTO_FILA + ALTURA_BOTON);
-		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(false);
