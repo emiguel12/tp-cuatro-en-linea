@@ -19,8 +19,7 @@ public class Tablero extends Application {
 	private static final int ALTO_FILA = 80;
 	private static final int ANCHO_COLUMNA = 80;
 	private static final int ALTURA_BOTON = 40;
-	private static final double RADIO = Math.min(ALTO_FILA, ANCHO_COLUMNA) / 2;
-	private static final double SEPARACION = 3;
+	private static final double RADIO = Math.min(ALTO_FILA - 1, ANCHO_COLUMNA - 1) / 2;
 	
 	private CuatroEnLinea juego;
 	private GridPane grilla;
@@ -37,8 +36,6 @@ public class Tablero extends Application {
 		juego = new CuatroEnLinea(filas, columnas, "Jugador 1", "Jugador 2");
 
 		grilla = new GridPane();
-		grilla.setVgap(SEPARACION);
-		grilla.setHgap(SEPARACION);
 		
 		for (int columna = 0; columna < columnas; columna++) {
 
@@ -50,8 +47,8 @@ public class Tablero extends Application {
 			grilla.add(botonSoltarFicha, columna, 0);
 		}
 
-		double ancho = (columnas * ANCHO_COLUMNA) + ((columnas - 1) * SEPARACION);
-		double alto = (filas * (ALTO_FILA + SEPARACION)) + ALTURA_BOTON + SEPARACION;
+		double ancho = columnas * ANCHO_COLUMNA;
+		double alto = (filas * ALTO_FILA) + ALTURA_BOTON;
 		
 		Scene scene = new Scene(grilla, ancho, alto);
 
@@ -76,7 +73,13 @@ public class Tablero extends Application {
 
 				Posicion posicion = juego.obtenerPosicion(fila, columna);
 				
-				grilla.add(new Circle(RADIO, obtenerPintura(posicion)), columna, fila + 1);
+				Circle dibujoCasillero = new Circle(RADIO, obtenerPintura(posicion));
+				
+				dibujoCasillero.setStroke(new Color(0.5, 0.5, 0.5, 1.0));
+				dibujoCasillero.setScaleX(0.95);
+				dibujoCasillero.setScaleY(0.95);
+				
+				grilla.add(dibujoCasillero, columna, fila + 1);
 			}
 		}
 	}
