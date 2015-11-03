@@ -71,9 +71,9 @@ public class Tablero extends Application {
 
 			for (int columna = 0; columna < juego.contarColumnas(); columna++) {
 
-				Posicion posicion = juego.obtenerPosicion(fila, columna);
+				Casillero casillero = juego.obtenerCasillero(fila, columna);
 				
-				Circle dibujoCasillero = new Circle(RADIO, obtenerPintura(posicion));
+				Circle dibujoCasillero = new Circle(RADIO, obtenerPintura(casillero));
 				
 				dibujoCasillero.setStroke(new Color(0.5, 0.5, 0.5, 1.0));
 				dibujoCasillero.setScaleX(0.95);
@@ -84,11 +84,11 @@ public class Tablero extends Application {
 		}
 	}
 
-	private Paint obtenerPintura(Posicion posicion) {
+	private Paint obtenerPintura(Casillero casillero) {
 
 		Paint pintura;
 
-		switch (posicion) {
+		switch (casillero) {
 			case AMARILLO:
 				pintura = Color.YELLOW;
 				break;

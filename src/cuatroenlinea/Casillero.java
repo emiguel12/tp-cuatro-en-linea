@@ -1,6 +1,6 @@
 package cuatroenlinea;
 
-public enum Posicion {
+public enum Casillero {
 
 	VACIO,
 	ROJO,

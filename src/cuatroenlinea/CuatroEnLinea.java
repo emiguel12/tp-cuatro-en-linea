@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class CuatroEnLinea {
 
-	private Posicion[][] posiciones;
+	private Casillero[][] casilleros;
 	
 	private String jugadorRojo;
 	
@@ -12,11 +12,11 @@ public class CuatroEnLinea {
 
 	public CuatroEnLinea(int filas, int columnas, String jugadorRojo, String jugadorAmarillo) {
 
-		posiciones = new Posicion[filas][columnas];
+		casilleros = new Casillero[filas][columnas];
 		for (int fila = 0; fila < filas; fila++) {
 
 			for (int columna = 0; columna < columnas; columna++) {
-				posiciones[fila][columna] = Posicion.VACIO;
+				casilleros[fila][columna] = Casillero.VACIO;
 			}
 		}
 		
@@ -26,17 +26,17 @@ public class CuatroEnLinea {
 
 	public void soltarFicha(int columna) {
 
-		posiciones[2][columna] = columna % 2 == 0 ? Posicion.ROJO : Posicion.AMARILLO;
+		casilleros[2][columna] = columna % 2 == 0 ? Casillero.ROJO : Casillero.AMARILLO;
 	}
 
 	public int contarFilas() {
 		
-		return posiciones.length;
+		return casilleros.length;
 	}
 
 	public int contarColumnas() {
 		
-		return posiciones[0].length;
+		return casilleros[0].length;
 	}
 
 	public boolean termino() {
@@ -54,8 +54,8 @@ public class CuatroEnLinea {
 		return (new Random()).nextBoolean() ? jugadorAmarillo : jugadorRojo;
 	}
 
-	public Posicion obtenerPosicion(int fila, int columna) {
+	public Casillero obtenerCasillero(int fila, int columna) {
 
-		return posiciones[fila][columna];
+		return casilleros[fila][columna];
 	}
 }
