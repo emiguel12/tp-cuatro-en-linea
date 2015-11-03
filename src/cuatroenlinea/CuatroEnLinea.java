@@ -24,11 +24,6 @@ public class CuatroEnLinea {
 		this.jugadorAmarillo = jugadorAmarillo;
 	}
 
-	public void soltarFicha(int columna) {
-
-		casilleros[2][columna] = columna % 2 == 0 ? Casillero.ROJO : Casillero.AMARILLO;
-	}
-
 	public int contarFilas() {
 		
 		return casilleros.length;
@@ -39,6 +34,16 @@ public class CuatroEnLinea {
 		return casilleros[0].length;
 	}
 
+	public Casillero obtenerCasillero(int fila, int columna) {
+		
+		return casilleros[fila][columna];
+	}
+	
+	public void soltarFicha(int columna) {
+		
+		casilleros[2][columna] = columna % 2 == 0 ? Casillero.ROJO : Casillero.AMARILLO;
+	}
+	
 	public boolean termino() {
 		
 		return (new Random()).nextBoolean();
@@ -52,10 +57,5 @@ public class CuatroEnLinea {
 	public String obtenerGanador() {
 		
 		return (new Random()).nextBoolean() ? jugadorAmarillo : jugadorRojo;
-	}
-
-	public Casillero obtenerCasillero(int fila, int columna) {
-
-		return casilleros[fila][columna];
 	}
 }
