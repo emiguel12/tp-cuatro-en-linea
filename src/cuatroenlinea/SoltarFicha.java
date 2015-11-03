@@ -21,8 +21,6 @@ public class SoltarFicha implements EventHandler<ActionEvent> {
 
 		juego.soltarFicha(columna);
 		
-		System.out.println("Soltó ficha en columan " + columna);
-		
 		tablero.dibujar();
 		
 		if (juego.termino()) {
