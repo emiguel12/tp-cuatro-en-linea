@@ -1,6 +1,5 @@
 package cuatroenlinea;
 
-import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,7 +13,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class Tablero extends Application {
+public class Tablero {
 
 	private static final int ALTO_FILA = 80;
 	private static final int ANCHO_COLUMNA = 80;
@@ -24,47 +23,46 @@ public class Tablero extends Application {
 	private CuatroEnLinea juego;
 	private GridPane grilla;
 	private Stage ventana;
+	private Stage escenario;
 
-	@Override
-	public void start(Stage primaryStage) {
-
-		ventana = primaryStage;
+	public Tablero(CuatroEnLinea nuevoJuego) {
 		
-		int filas = 7;
-		int columnas = 7;
-		Tablero tablero = this;
-		juego = new CuatroEnLinea(filas, columnas, "Jugador 1", "Jugador 2");
-
+		juego = nuevoJuego;
+		escenario = new Stage();
 		grilla = new GridPane();
+	}
+	
+	public void mostrar() {
 		
-		for (int columna = 0; columna < columnas; columna++) {
+		dibujarBotones();
+		
+		double ancho = juego.contarColumnas() * ANCHO_COLUMNA;
+		double alto = (juego.contarFilas() * ALTO_FILA) + ALTURA_BOTON;
+		
+		Scene escena = new Scene(grilla, ancho, alto);
+
+		escenario.setScene(escena);
+		escenario.setResizable(false);
+		escenario.setTitle("Cuatro en línea");
+		
+		dibujar();
+
+		escenario.show();
+	}
+	
+	private void dibujarBotones() {
+		
+		for (int columna = 0; columna < juego.contarColumnas(); columna++) {
 
 			Button botonSoltarFicha = new Button("Soltar");
 			botonSoltarFicha.setMinHeight(ALTURA_BOTON);
 
-			botonSoltarFicha.setOnAction(new SoltarFicha(tablero, juego, columna));
+			botonSoltarFicha.setOnAction(new SoltarFicha(this, juego, columna));
 			botonSoltarFicha.setMinWidth(ANCHO_COLUMNA);
 			grilla.add(botonSoltarFicha, columna, 0);
 		}
-
-		double ancho = columnas * ANCHO_COLUMNA;
-		double alto = (filas * ALTO_FILA) + ALTURA_BOTON;
-		
-		Scene scene = new Scene(grilla, ancho, alto);
-
-		primaryStage.setScene(scene);
-		primaryStage.setResizable(false);
-		primaryStage.setTitle("Cuatro en línea");
-		dibujar();
-
-		primaryStage.show();
-
 	}
-
-	public static void main(String[] args) {
-		launch(args);
-	}
-
+	
 	public void dibujar() {
 
 		for (int fila = 0; fila < juego.contarFilas(); fila++) {
@@ -73,15 +71,21 @@ public class Tablero extends Application {
 
 				Casillero casillero = juego.obtenerCasillero(fila, columna);
 				
-				Circle dibujoCasillero = new Circle(RADIO, obtenerPintura(casillero));
-				
-				dibujoCasillero.setStroke(new Color(0.5, 0.5, 0.5, 1.0));
-				dibujoCasillero.setScaleX(0.95);
-				dibujoCasillero.setScaleY(0.95);
+				Circle dibujoCasillero = dibujarCasillero(casillero);
 				
 				grilla.add(dibujoCasillero, columna, fila + 1);
 			}
 		}
+	}
+
+	private Circle dibujarCasillero(Casillero casillero) {
+		
+		Circle dibujoCasillero = new Circle(RADIO, obtenerPintura(casillero));
+		
+		dibujoCasillero.setStroke(new Color(0.5, 0.5, 0.5, 1.0));
+		dibujoCasillero.setScaleX(0.95);
+		dibujoCasillero.setScaleY(0.95);
+		return dibujoCasillero;
 	}
 
 	private Paint obtenerPintura(Casillero casillero) {
