@@ -23,9 +23,11 @@ Casillero `Casillero`: [`Casillero.java`](./src/juego/Casillero.java)
 El siguiente trabajo debe realizarse o en grupos de a lo sumo 3 personas, 
 no se admitirán bajo ningun concepto entregas individuales o de grupos formados por 4 o más personas.
 
-La fecha límite de entrega del trabajo es: 14 (curso lunes y jueves) y 16 (curso miércoles y sábados) de noviembre, 
-quien no haya entregado el trabajo en fecha no podrá presentarse a rendir el 2do parcial 
-los dias 14 y 16 de noviembre respectivamente.
+La fecha límite de entrega del trabajo es: 
+
+  * Comisión 1 - Lunes y Jueves: 26/11
+  * Comisión 2 - Martes y Sábado: 28/11
+  * Comisión 3 - Lunes y Miércoles: 25/11 
 
 Los docentes usarán su propia batería de pruebas (que respetan la misma interfaz, 
 por lo que no deberán cambiar la firma de sus métodos públicos de la clase `CuatroEnLinea`).
