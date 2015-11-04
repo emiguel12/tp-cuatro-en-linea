@@ -6,7 +6,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
@@ -22,8 +21,8 @@ public class Aplicacion extends Application {
 	private TextField campoNombreJugadorRojo;
 	private TextField campoNombreJugadorAmarillo;
 
-	private Spinner<Integer> campoColumnas;
-	private Spinner<Integer> campoFilas;
+	private TextField campoColumnas;
+	private TextField campoFilas;
 
 	private Button botonIniciar;
 
@@ -70,8 +69,8 @@ public class Aplicacion extends Application {
 		campoNombreJugadorRojo = new TextField();
 		campoNombreJugadorAmarillo = new TextField();
 		
-		campoColumnas = new Spinner<Integer>(4, 40, 7);
-		campoFilas = new Spinner<Integer>(4, 20, 7);
+		campoColumnas = new TextField("7");
+		campoFilas = new TextField("7");
 		
 		botonIniciar = new Button("Iniciar");
 		botonIniciar.setOnAction(new IniciarJuego(this));
@@ -81,8 +80,8 @@ public class Aplicacion extends Application {
 		
 		String nombreJugadorRojo = campoNombreJugadorRojo.getText();
 		String nombreJugadorAmarillo = campoNombreJugadorAmarillo.getText();
-		int filas = campoFilas.getValue();
-		int columnas = campoColumnas.getValue();
+		int filas = Integer.parseInt(campoFilas.getText());
+		int columnas = Integer.parseInt(campoColumnas.getText());
 		
 		CuatroEnLinea juego = new CuatroEnLinea(filas, columnas, 
 												nombreJugadorRojo, nombreJugadorAmarillo);
