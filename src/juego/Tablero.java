@@ -53,7 +53,7 @@ public class Tablero {
 		
 		for (int columna = 0; columna < juego.contarColumnas(); columna++) {
 
-			Button botonSoltarFicha = new Button("Soltar");
+			Button botonSoltarFicha = new Button("soltar");
 			botonSoltarFicha.setMinHeight(ALTURA_BOTON);
 
 			botonSoltarFicha.setOnAction(new SoltarFicha(this, juego, columna));
@@ -64,15 +64,15 @@ public class Tablero {
 	
 	public void dibujar() {
 
-		for (int fila = 0; fila < juego.contarFilas(); fila++) {
+		for (int fila = 1; fila <= juego.contarFilas(); fila++) {
 
-			for (int columna = 0; columna < juego.contarColumnas(); columna++) {
+			for (int columna = 1; columna <= juego.contarColumnas(); columna++) {
 
 				Casillero casillero = juego.obtenerCasillero(fila, columna);
 				
 				Circle dibujoCasillero = dibujarCasillero(casillero);
 				
-				grilla.add(dibujoCasillero, columna, fila + 1);
+				grilla.add(dibujoCasillero, columna - 1, fila);
 			}
 		}
 	}
@@ -92,12 +92,15 @@ public class Tablero {
 		Paint pintura;
 
 		switch (casillero) {
+		
 			case AMARILLO:
 				pintura = Color.YELLOW;
 				break;
+				
 			case ROJO:
 				pintura = Color.RED;
 				break;
+				
 			default:
 				pintura = Color.WHITE;
 		}
