@@ -1,4 +1,4 @@
-package cuatroenlinea;
+package juego;
 
 import java.util.Random;
 

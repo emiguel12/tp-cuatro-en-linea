@@ -1,4 +1,4 @@
-package cuatroenlinea;
+package juego;
 
 import javafx.application.Application;
 import javafx.geometry.HPos;

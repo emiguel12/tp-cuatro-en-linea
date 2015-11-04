@@ -1,4 +1,4 @@
-package cuatroenlinea;
+package juego;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

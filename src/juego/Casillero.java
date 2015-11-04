@@ -1,4 +1,4 @@
-package cuatroenlinea;
+package juego;
 
 public enum Casillero {
 
