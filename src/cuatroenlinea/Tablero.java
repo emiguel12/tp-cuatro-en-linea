@@ -22,7 +22,6 @@ public class Tablero {
 	
 	private CuatroEnLinea juego;
 	private GridPane grilla;
-	private Stage ventana;
 	private Stage escenario;
 
 	public Tablero(CuatroEnLinea nuevoJuego) {
@@ -43,7 +42,7 @@ public class Tablero {
 
 		escenario.setScene(escena);
 		escenario.setResizable(false);
-		escenario.setTitle("Cuatro en línea");
+		escenario.setTitle(Aplicacion.TITULO);
 		
 		dibujar();
 
@@ -130,7 +129,7 @@ public class Tablero {
 		Scene escenaGanador = new Scene(panelGanador);
 		
 		dialogo.setScene(escenaGanador);
-		dialogo.initOwner(ventana);
+		dialogo.initOwner(escenario);
 		dialogo.initModality(Modality.WINDOW_MODAL);
 		dialogo.setResizable(false);
 		
