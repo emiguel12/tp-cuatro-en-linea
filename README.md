@@ -8,9 +8,11 @@ Completar el desarrollo de la aplicación Cuatro en Línea.
 
 ## Enunciado
 
-Implementar la clase `CuatroEnLinea` a partir de la siguiente especificación: [`CuatroEnLinea.java`](./src/juego/CuatroEnLinea.java).
+Implementar la clase `CuatroEnLinea` a partir de la siguiente especificación: 
 
-Casillero `Casillero`: [`Casillero.java`](./src/juego/Casillero.java)
+[`CuatroEnLinea.java`](./src/juego/CuatroEnLinea.java).
+
+[`Casillero.java`](./src/juego/Casillero.java)
 
 ### Pantallas
 
