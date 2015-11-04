@@ -13,6 +13,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Representación gráfica del Tablero del Juego Cuatro en Línea.
+ * 
+ */
 public class Tablero {
 
 	private static final int ALTO_FILA = 80;
@@ -24,6 +28,11 @@ public class Tablero {
 	private GridPane grilla;
 	private Stage escenario;
 
+	/**
+	 * post: asocia el Tablero a 'nuevoJuego' y lo inicializa a partir de su estado. 
+	 * 
+	 * @param nuevoJuego
+	 */
 	public Tablero(CuatroEnLinea nuevoJuego) {
 		
 		juego = nuevoJuego;
@@ -31,6 +40,9 @@ public class Tablero {
 		grilla = new GridPane();
 	}
 	
+	/**
+	 * post: muestra el Tablero en pantalla.
+	 */
 	public void mostrar() {
 		
 		dibujarBotones();
@@ -49,6 +61,9 @@ public class Tablero {
 		escenario.show();
 	}
 	
+	/**
+	 * post: agrega los botones para soltar una ficha en cada columna del Tablero.
+	 */
 	private void dibujarBotones() {
 		
 		for (int columna = 0; columna < juego.contarColumnas(); columna++) {
@@ -62,6 +77,9 @@ public class Tablero {
 		}
 	}
 	
+	/**
+	 * post: actualiza el Tablero a partir del estado del juego asociado.
+	 */
 	public void dibujar() {
 
 		for (int fila = 1; fila <= juego.contarFilas(); fila++) {
@@ -77,6 +95,12 @@ public class Tablero {
 		}
 	}
 
+	/**
+	 * post: dibuja y devuelve el casillero dado.
+	 * 
+	 * @param casillero
+	 * @return representación gráfica del Casillero.
+	 */
 	private Circle dibujarCasillero(Casillero casillero) {
 		
 		Circle dibujoCasillero = new Circle(RADIO, obtenerPintura(casillero));
@@ -87,6 +111,12 @@ public class Tablero {
 		return dibujoCasillero;
 	}
 
+	/**
+	 * post: determina la pintura a utilizar para 'casillero'.
+
+	 * @param casillero
+	 * @return pintura a utilizar para identificar el Casillero.
+	 */
 	private Paint obtenerPintura(Casillero casillero) {
 
 		Paint pintura;
@@ -108,6 +138,10 @@ public class Tablero {
 		return pintura;
 	}
 
+	/**
+	 * pre : el juego asociado terminó.
+	 * post: muestra un mensaje indicando el resultado del juego.
+	 */
 	public void mostrarResultado() {
 
 		Stage dialogo = new Stage();
@@ -123,7 +157,7 @@ public class Tablero {
 			
 		} else {
 			
-			textoResultado = new Text("Hubo empate");
+			textoResultado = new Text("Empataron");
 		}
 		
 		textoResultado.setFont(fuente);
