@@ -3,11 +3,11 @@ package cuatroenlinea;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-public class Iniciar implements EventHandler<ActionEvent> {
+public class IniciarJuego implements EventHandler<ActionEvent> {
 
 	private Aplicacion aplicacion;
 	
-	public Iniciar(Aplicacion aplicacion) {
+	public IniciarJuego(Aplicacion aplicacion) {
 
 		this.aplicacion = aplicacion;
 	}

@@ -74,7 +74,7 @@ public class Aplicacion extends Application {
 		campoFilas = new Spinner<Integer>(4, 20, 7);
 		
 		botonIniciar = new Button("Iniciar");
-		botonIniciar.setOnAction(new Iniciar(this));
+		botonIniciar.setOnAction(new IniciarJuego(this));
 	}
 	
 	public void iniciar() {
