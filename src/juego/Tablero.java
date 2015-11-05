@@ -66,14 +66,14 @@ public class Tablero {
 	 */
 	private void dibujarBotones() {
 		
-		for (int columna = 0; columna < juego.contarColumnas(); columna++) {
+		for (int columna = 1; columna <= juego.contarColumnas(); columna++) {
 
 			Button botonSoltarFicha = new Button("soltar");
 			botonSoltarFicha.setMinHeight(ALTURA_BOTON);
 
 			botonSoltarFicha.setOnAction(new SoltarFicha(this, juego, columna));
 			botonSoltarFicha.setMinWidth(ANCHO_COLUMNA);
-			grilla.add(botonSoltarFicha, columna, 0);
+			grilla.add(botonSoltarFicha, columna - 1, 0);
 		}
 	}
 	
