@@ -14,7 +14,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * Representaci√≥n gr√°fica del Tablero del Juego Cuatro en L√≠nea.
+ * RepresentaciÛn gr·fica del Tablero del Juego Cuatro en LÌ≠nea.
  * 
  */
 public class Tablero {
@@ -99,7 +99,7 @@ public class Tablero {
 	 * post: dibuja y devuelve el casillero dado.
 	 * 
 	 * @param casillero
-	 * @return representaci√≥n gr√°fica del Casillero.
+	 * @return representaciÛn gr·fica del Casillero.
 	 */
 	private Circle dibujarCasillero(Casillero casillero) {
 		
@@ -139,7 +139,7 @@ public class Tablero {
 	}
 
 	/**
-	 * pre : el juego asociado termin√≥.
+	 * pre : el juego asociado terminÛ.
 	 * post: muestra un mensaje indicando el resultado del juego.
 	 */
 	public void mostrarResultado() {
@@ -153,7 +153,7 @@ public class Tablero {
 		
 		if (juego.hayGanador()) {
 		
-			textoResultado = new Text("Gan√≥ el jugador " + juego.obtenerGanador());
+			textoResultado = new Text("GanÛ el jugador " + juego.obtenerGanador());
 			
 		} else {
 			

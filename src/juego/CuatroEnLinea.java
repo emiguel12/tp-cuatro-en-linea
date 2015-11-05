@@ -1,7 +1,7 @@
 package juego;
 
 /**
- * Juego Cuatro en L√≠nea
+ * Juego Cuatro en LÌ≠nea
  * 
  * Reglas:
  * 
@@ -15,7 +15,7 @@ public class CuatroEnLinea {
 	 * post: empieza el juego entre el jugador que tiene fichas rojas, identificado como 
 	 * 		 'jugadorRojo' y el jugador que tiene fichas amarillas, identificado como
 	 * 		 'jugadorAmarillo'. 
-	 * 		 Todo el tablero est√° vac√≠o.
+	 * 		 Todo el tablero est· vacÌo.
 	 * 
 	 * @param filas : cantidad de filas que tiene el tablero.
 	 * @param columnas : cantidad de columnas que tiene el tablero.
@@ -27,7 +27,7 @@ public class CuatroEnLinea {
 	}
 
 	/**
-	 * post: devuelve la cantidad m√°xima de fichas que se pueden apilar en el tablero.
+	 * post: devuelve la cantidad m·xima de fichas que se pueden apilar en el tablero.
 	 */
 	public int contarFilas() {
 		
@@ -35,7 +35,7 @@ public class CuatroEnLinea {
 	}
 
 	/**
-	 * post: devuelve la cantidad m√°xima de fichas que se pueden alinear en el tablero.
+	 * post: devuelve la cantidad m·xima de fichas que se pueden alinear en el tablero.
 	 */
 	public int contarColumnas() {
 		
@@ -43,9 +43,9 @@ public class CuatroEnLinea {
 	}
 
 	/**
-	 * pre : fila est√° en el intervalo [1, contarFilas()],
-	 * 		 columnas est√° en el intervalo [1, contarColumnas()].
-	 * post: indica qu√© ocupa el casillero indicado por fila y columna.
+	 * pre : fila est· en el intervalo [1, contarFilas()],
+	 * 		 columnas est· en el intervalo [1, contarColumnas()].
+	 * post: indica quÈ ocupa el casillero en la posiciÛn dada por fila y columna.
 	 * 
 	 * @param fila
 	 * @param columna
@@ -56,8 +56,8 @@ public class CuatroEnLinea {
 	}
 	
 	/**
-	 * pre : el juego no termin√≥, columna est√° en el intervalo [1, contarColumnas()]
-	 * 		 y a√∫n queda un Casillero.VACIO en la columna indicada. 
+	 * pre : el juego no terminÛ, columna est· en el intervalo [1, contarColumnas()]
+	 * 		 y a˙n queda un Casillero.VACIO en la columna indicada. 
 	 * post: deja caer una ficha en la columna indicada.
 	 * 
 	 * @param columna
@@ -67,8 +67,8 @@ public class CuatroEnLinea {
 	}
 	
 	/**
-	 * post: indica si el juego termin√≥ porque uno de los jugadores
-	 * 		 gan√≥ o no existen casilleros vac√≠os.
+	 * post: indica si el juego terminÛ porque uno de los jugadores
+	 * 		 ganÛ o no existen casilleros vacÌos.
 	 */
 	public boolean termino() {
 		
@@ -76,7 +76,7 @@ public class CuatroEnLinea {
 	}
 
 	/**
-	 * post: indica si el juego termin√≥ y tiene un ganador.
+	 * post: indica si el juego terminÛ y tiene un ganador.
 	 */
 	public boolean hayGanador() {
 		
@@ -84,8 +84,8 @@ public class CuatroEnLinea {
 	}
 
 	/**
-	 * pre : el juego termin√≥.
-	 * post: devuelve el nombre del jugador que gan√≥ el juego.
+	 * pre : el juego terminÛ.
+	 * post: devuelve el nombre del jugador que ganÛ el juego.
 	 */
 	public String obtenerGanador() {
 		

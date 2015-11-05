@@ -1,14 +1,14 @@
-UNTreF - Algoritmos y ProgramaciÃ³n 1
+UNTreF - Algoritmos y Programación 1
 
-# Trabajo PrÃ¡ctico: Cuatro en LÃ­nea
+# Trabajo Práctico: Cuatro en LÃ­nea
 
 ## Problema
 
-Completar el desarrollo de la aplicaciÃ³n Cuatro en LÃ­nea.
+Completar el desarrollo de la aplicación Cuatro en Lí­nea.
 
 ## Enunciado
 
-Implementar la clase `CuatroEnLinea` a partir de la siguiente especificaciÃ³n: 
+Implementar la clase `CuatroEnLinea` a partir de la siguiente especificación: 
 
 [`CuatroEnLinea.java`](./src/juego/CuatroEnLinea.java).
 
@@ -23,20 +23,22 @@ Implementar la clase `CuatroEnLinea` a partir de la siguiente especificaciÃ³n:
 ## Condiciones
 
 El siguiente trabajo debe realizarse o en grupos de a lo sumo 3 personas, 
-no se admitirÃ¡n bajo ningun concepto entregas individuales o de grupos formados por 4 o mÃ¡s personas.
+no se admitirán bajo ningún concepto entregas individuales o de grupos formados por 4 o más personas.
 
-La fecha lÃ­mite de entrega del trabajo es: 
+La fecha lí­mite de entrega del trabajo es: 
 
-  * ComisiÃ³n 1 - Lunes y Jueves: 26/11
-  * ComisiÃ³n 2 - Martes y SÃ¡bado: 28/11
-  * ComisiÃ³n 3 - Lunes y MiÃ©rcoles: 25/11 
+  * Comisión 1 - Lunes y Jueves: 26/11
+  * Comisión 2 - Martes y Sábado: 28/11
+  * Comisión 3 - Lunes y Miércoles: 25/11 
 
-Los docentes usarÃ¡n su propia baterÃ­a de pruebas (que respetan la misma interfaz, 
-por lo que no deberÃ¡n cambiar la firma de sus mÃ©todos pÃºblicos de la clase `CuatroEnLinea`).
+Los docentes usarán su propia baterí­a de pruebas (que respetan la misma interfaz, 
+por lo que no deberán cambiar la firma de sus métodos públicos de la clase `CuatroEnLinea`).
 
-En funciÃ³n a las pruebas que pasen, se asignarÃ¡ una nota al trabajo. 
+En función a las pruebas que pasen, se asignará una nota al trabajo. 
 
-El 60% de las pruebas garantiza la aprobaciÃ³n.
+También serán tenidos en cuenta aquellos trabajos que mejoren la gráfica de la aplicación.
+
+El 60% de las pruebas garantiza la aprobación.
 
 ## Pruebas Unitarias
 
