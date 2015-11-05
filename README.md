@@ -1,6 +1,6 @@
 UNTreF - Algoritmos y Programación 1
 
-# Trabajo Práctico: Cuatro en LÃ­nea
+# Trabajo Práctico: Cuatro en Lí­nea
 
 ## Problema
 
