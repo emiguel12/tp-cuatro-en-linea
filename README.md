@@ -22,19 +22,37 @@ Implementar la clase `CuatroEnLinea` a partir de la siguiente especificación:
 
 ## Condiciones
 
-El siguiente trabajo debe realizarse o en grupos de a lo sumo 3 personas, 
-no se admitirán bajo ningún concepto entregas individuales o de grupos formados por 4 o más personas.
+El siguiente trabajo debe realizarse en grupos de 3 a 4 personas, 
+no se admitirán bajo ningún concepto entregas individuales o de grupos formados 5 o más personas.
 
-Los docentes usarán su propia baterí­a de pruebas (que respetan la misma interfaz, 
-por lo que no deberán cambiar la firma de sus métodos públicos de la clase `CuatroEnLinea`).
+Se provee un conjunto de pruebas unitarias. Cada grupo puede agregar otras clases de pruebas 
+que agreguen más cobertura a otros casos que consideren necesarios, 
+pero bajo ningún concepto pueden alterar la batería de pruebas provistas por los docentes.
+   
+No es posible cambiar la interfaz de la clase CuatroEnLinea, 
+ya sea modificando el nombre de los métodos, los parámetros, los tipos de retorno o agregando nuevos métodos públicos.
 
-En función a las pruebas que pasen, se asignará una nota al trabajo. 
+En la clase CuatroEnLinea se pueden incluir métodos privados y atributos.
 
-También serán tenidos en cuenta aquellos trabajos que mejoren la gráfica de la aplicación.
+Tampoco es posible cambiar la definición del enumerado Casillero.
 
-El 60% de las pruebas garantiza la aprobación.
+Se pueden crear nuevas clases para modularizar la solución.
 
-## Pruebas Unitarias
+Se pueden modificar las clases Aplicacion, Tablero, IniciarJuego, SoltarFicha y MostrarError para
+personalizar la interfaz gráfica.
 
-Se deben entregar pruebas unitarias intensivas de la clase desarrollada.
+## Aprobación
 
+La solución debe ser entrega en fecha y debe pasar el 100% de las pruebas unitarias 
+incluídas en el proyecto. Esto es necesario, pero no suficiente para aprobación.
+
+La corrección del Trabajo Práctico tendrá en cuenta:
+
+* Cumplimiento de las pruebas unitarias provistas por los docentes.
+* Inclusión de nuevos casos de pruebas (no requerido).
+* Corrección y robustez.
+* Documentación.
+* Modularización de la solución.
+* Claridad del código.
+* Aplicación de conceptos teóricos y prácticos vistos en la materia.
+* Las mejoras hechas a la gráfica de la aplicación (no requerido).
