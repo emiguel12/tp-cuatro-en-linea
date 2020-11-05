@@ -9,6 +9,8 @@ package juego;
  *
  */
 public class CuatroEnLinea {
+	
+	private Casillero[][] tablero;
 
 	/**
 	 * pre : 'filas' y 'columnas' son mayores o iguales a 4.
