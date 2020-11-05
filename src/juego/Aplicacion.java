@@ -103,6 +103,8 @@ public class Aplicacion extends Application {
 	
 	public static void main(String[] args) {
 		
+		Thread.setDefaultUncaughtExceptionHandler(new MostrarError());
+		
 		launch(args);
 	}
 }
