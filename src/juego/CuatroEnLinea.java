@@ -30,6 +30,7 @@ public class CuatroEnLinea {
 	
 	private void Hola(){
 		int i = 0;
+		int j = 25;
 	}
 
 	/**
