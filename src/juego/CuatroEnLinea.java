@@ -32,9 +32,9 @@ public class CuatroEnLinea {
 
 
 		int i = 147;
-		int j = 45;
-
-
+		int j = 200;
+		int k =0;
+ 
 	}
 
 	/**
