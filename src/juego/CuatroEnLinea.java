@@ -26,7 +26,8 @@ public class CuatroEnLinea {
 	 */
 	public CuatroEnLinea(int filas, int columnas, String jugadorRojo, String jugadorAmarillo) {
 		double i = 32;
-
+		
+		
 	}
 
 	/**
