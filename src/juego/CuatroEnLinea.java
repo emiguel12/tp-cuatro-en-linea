@@ -93,4 +93,8 @@ public class CuatroEnLinea {
 		
 		return null;
 	}
+	
+	public void nada(){
+		System.out.println("Hola");
+	}
 }
