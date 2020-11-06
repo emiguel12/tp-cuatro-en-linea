@@ -23,8 +23,6 @@ public class CuatroEnLinea {
 	 * @param columnas : cantidad de columnas que tiene el tablero.
 	 * @param jugadorRojo : nombre del jugador con fichas rojas.
 	 * @param jugadorAmarillo : nombre del jugador con fichas amarillas.
-	 * 
-	 * Te imprime tu asuiodhasuidhioawekmw
 	 */
 	public CuatroEnLinea(int filas, int columnas, String jugadorRojo, String jugadorAmarillo) {
 
