@@ -30,8 +30,8 @@ public class CuatroEnLinea {
 	
 	private void Hola(){
 
-		int i = 0;
-		int j = 25;
+		int i = 147;
+		int j = -89;
 
 
 	}
