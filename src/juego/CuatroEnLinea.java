@@ -25,8 +25,9 @@ public class CuatroEnLinea {
 	 * @param jugadorAmarillo : nombre del jugador con fichas amarillas.
 	 */
 	public CuatroEnLinea(int filas, int columnas, String jugadorRojo, String jugadorAmarillo) {
-		double i = 32;
+		double i = 1234;
 		int j = 0;
+		int h = 0;
 		
 	}
 
