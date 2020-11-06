@@ -64,7 +64,7 @@ public class CuatroEnLinea {
 	 * 
 	 * @param columna
 	 */
-	public void soltarFicha(int columna) {
+	public void soltarFichaEnColumna(int columna) {
 		
 	}
 	
