@@ -43,7 +43,7 @@ personalizar la interfaz gráfica.
 
 ## Aprobación
 
-La solución debe ser entrega en fecha y debe pasar el 100% de las pruebas unitarias 
+La solución debe ser entregada en fecha y pasar el 100% de las pruebas unitarias 
 incluídas en el proyecto. Esto es necesario, pero no suficiente para aprobación.
 
 La corrección del Trabajo Práctico tendrá en cuenta:
