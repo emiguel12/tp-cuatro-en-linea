@@ -29,8 +29,11 @@ public class CuatroEnLinea {
 	}
 	
 	private void Hola(){
+
 		int i = 0;
 		int j = 25;
+
+
 	}
 
 	/**
@@ -101,5 +104,7 @@ public class CuatroEnLinea {
 	
 	public void nada(){
 		System.out.println("Hola");
+		Hola();
+		
 	}
 }
