@@ -28,11 +28,11 @@ public class CuatroEnLinea {
 
 	}
 	
-	private void Hola(){
+	private void PorFavorAndaMerge(){
 
 
-		int i = 147;
-		int j = 45;
+		int i = 87954;
+		int j = 451;
 
 
 	}
@@ -105,7 +105,7 @@ public class CuatroEnLinea {
 	
 	public void nada(){
 		System.out.println("Hola");
-		Hola();
+		
 		
 	}
 }
