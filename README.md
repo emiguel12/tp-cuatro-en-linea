@@ -1,4 +1,4 @@
-UNTreF - Algoritmos y Programación 1 - Nuevo
+UNTreF - Algoritmos y Programación 1 - 
 
 # Trabajo Práctico: Cuatro en Lí­nea
 
