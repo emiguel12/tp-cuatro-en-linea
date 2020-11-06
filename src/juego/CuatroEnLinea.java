@@ -31,7 +31,7 @@ public class CuatroEnLinea {
 	private void Hola(){
 
 		int i = 10;
-		int j = ;
+		int j = 6;
 		System.out.println("hola");
 
 
