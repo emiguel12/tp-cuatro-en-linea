@@ -30,8 +30,9 @@ public class CuatroEnLinea {
 	
 	private void Hola(){
 
-		int i = 0;
-		int j = 25;
+		int i = 10;
+		int j = ;
+		System.out.println("hola");
 
 
 	}
