@@ -27,6 +27,10 @@ public class CuatroEnLinea {
 	public CuatroEnLinea(int filas, int columnas, String jugadorRojo, String jugadorAmarillo) {
 
 	}
+	
+	private void Hola(){
+		int i = 0;
+	}
 
 	/**
 	 * post: devuelve la cantidad máxima de fichas que se pueden apilar en el tablero.
