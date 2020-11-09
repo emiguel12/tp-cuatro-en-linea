@@ -11,6 +11,10 @@ package juego;
 public class CuatroEnLinea {
 	
 	private Casillero[][] tablero;
+	private int filas;
+	private int columnas;
+	private String jugadorRojo;
+	private String jugadorAmarillo;
 
 	/**
 	 * pre : 'filas' y 'columnas' son mayores o iguales a 4.
@@ -25,7 +29,10 @@ public class CuatroEnLinea {
 	 * @param jugadorAmarillo : nombre del jugador con fichas amarillas.
 	 */
 	public CuatroEnLinea(int filas, int columnas, String jugadorRojo, String jugadorAmarillo) {
-		
+		this.filas = filas;
+		this.columnas = columnas;
+		this.jugadorAmarillo = jugadorAmarillo;
+		this.jugadorRojo = jugadorRojo;
 	}
 
 	/**
@@ -33,7 +40,7 @@ public class CuatroEnLinea {
 	 */
 	public int contarFilas() {
 		
-		return 4;
+		return this.filas;
 	}
 
 	/**
@@ -41,7 +48,7 @@ public class CuatroEnLinea {
 	 */
 	public int contarColumnas() {
 		
-		return 4;
+		return this.columnas;
 	}
 
 	/**
