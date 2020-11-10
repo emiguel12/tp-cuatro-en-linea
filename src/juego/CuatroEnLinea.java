@@ -13,6 +13,7 @@ public class CuatroEnLinea {
 	private Casillero[][] tablero;
 	private String jugadorRojo;
 	private String jugadorAmarillo;
+	private String turno;
 
 	/**
 	 * pre : 'filas' y 'columnas' son mayores o iguales a 4.
@@ -72,6 +73,33 @@ public class CuatroEnLinea {
 	 */
 	public void soltarFichaEnColumna(int columna) {
 		
+		int col = columna - 1;
+		int fila = this.contarFilas() -1;
+		boolean soltoFicha = false;
+		
+		if(!termino()){
+			
+			while(fila >= 0 && soltoFicha == false){
+				
+				if(this.tablero[fila][col] != Casillero.VACIO){
+					fila --;
+				}else{
+					
+					this.tablero[fila][col] = (this.turno == "amarillo") ? Casillero.AMARILLO : Casillero.ROJO; 
+					soltoFicha = true;
+				}
+				
+			}
+			
+			if(fila == -1){
+				return;
+			}else{
+				cambiarTurno();
+				return;
+			}
+			
+		}
+		
 	}
 	
 	/**
@@ -123,4 +151,9 @@ public class CuatroEnLinea {
 		}
 	}
 	
+	
+	private void cambiarTurno(){
+		
+		this.turno = (this.turno == "rojo") ? "amarillo" : "rojo";
+	}
 }
