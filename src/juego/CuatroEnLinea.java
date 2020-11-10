@@ -13,8 +13,9 @@ public class CuatroEnLinea {
 	private Casillero[][] tablero;
 	private String jugadorRojo;
 	private String jugadorAmarillo;
-	private String turno;
 	private String ganador;
+	private boolean esTurnoRojo = true;
+
 
 	/**
 	 * pre : 'filas' y 'columnas' son mayores o iguales a 4. post: empieza el
@@ -39,7 +40,6 @@ public class CuatroEnLinea {
 		this.jugadorAmarillo = jugadorAmarillo;
 		this.jugadorRojo = jugadorRojo;
 
-		this.turno = "rojo";
 	}
 
 	/**
@@ -88,16 +88,17 @@ public class CuatroEnLinea {
 		int fila = this.contarFilas() - 1;
 		boolean soltoFicha = false;
 
-		if (!termino()) {
 
-			while (fila >= 0 && soltoFicha == false) {
+		if(!termino()){
+			
+			while(fila >= 0 && soltoFicha == false){
+				
+				if(this.tablero[fila][col] != Casillero.VACIO){
+					fila --;
+				}else{
+					
+					this.tablero[fila][col] = (this.esTurnoRojo ) ? Casillero.ROJO : Casillero.AMARILLO; 
 
-				if (this.tablero[fila][col] != Casillero.VACIO) {
-					fila--;
-				} else {
-
-					this.tablero[fila][col] = (this.turno == "amarillo") ? Casillero.AMARILLO
-							: Casillero.ROJO;
 					soltoFicha = true;
 				}
 
@@ -182,9 +183,10 @@ public class CuatroEnLinea {
 		}
 	}
 
-	private void cambiarTurno() {
+	private void cambiarTurno(){
+		
+		this.esTurnoRojo = !this.esTurnoRojo;
 
-		this.turno = (this.turno == "rojo") ? "amarillo" : "rojo";
 	}
 
 	/*
