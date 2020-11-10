@@ -11,8 +11,6 @@ package juego;
 public class CuatroEnLinea {
 	
 	private Casillero[][] tablero;
-	private int filas;
-	private int columnas;
 	private String jugadorRojo;
 	private String jugadorAmarillo;
 
@@ -29,8 +27,9 @@ public class CuatroEnLinea {
 	 * @param jugadorAmarillo : nombre del jugador con fichas amarillas.
 	 */
 	public CuatroEnLinea(int filas, int columnas, String jugadorRojo, String jugadorAmarillo) {
-		this.filas = filas;
-		this.columnas = columnas;
+
+		this.crearTablero(filas, columnas);
+		
 		this.jugadorAmarillo = jugadorAmarillo;
 		this.jugadorRojo = jugadorRojo;
 	}
@@ -40,7 +39,7 @@ public class CuatroEnLinea {
 	 */
 	public int contarFilas() {
 		
-		return this.filas;
+		return this.tablero.length;
 	}
 
 	/**
@@ -48,7 +47,7 @@ public class CuatroEnLinea {
 	 */
 	public int contarColumnas() {
 		
-		return this.columnas;
+		return this.tablero[0].length;
 	}
 
 	/**
@@ -61,7 +60,7 @@ public class CuatroEnLinea {
 	 */
 	public Casillero obtenerCasillero(int fila, int columna) {
 		
-		return Casillero.VACIO;
+		return tablero[fila-1][columna-1];
 	}
 	
 	/**
@@ -100,4 +99,28 @@ public class CuatroEnLinea {
 		
 		return null;
 	}
+	
+	private void crearTablero(int filas, int columnas){
+		
+		if(filas < 4 || filas > 10 ){
+			throw new Error("La cantidad de filas debe estar entre 4 y 10");
+		}
+		
+		if(columnas < 4 || columnas > 10){
+			throw new Error("La cantidad de columnas debe estar entre 4 y 10");
+		}
+		
+		this.tablero = new Casillero[filas][columnas];  
+		this.inicializarTablero();
+	}
+	
+	private void inicializarTablero(){
+		
+		for (int i = 0; i < tablero.length; i++) {
+			for (int j = 0; j < tablero[i].length; j++) {
+		      this.tablero[i][j] = Casillero.VACIO;	
+			}
+		}
+	}
+	
 }
