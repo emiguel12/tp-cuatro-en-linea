@@ -15,6 +15,7 @@ public class CuatroEnLinea {
 	private int columnas;
 	private String jugadorRojo;
 	private String jugadorAmarillo;
+	private String turno;
 
 	/**
 	 * pre : 'filas' y 'columnas' son mayores o iguales a 4.
@@ -33,6 +34,17 @@ public class CuatroEnLinea {
 		this.columnas = columnas;
 		this.jugadorAmarillo = jugadorAmarillo;
 		this.jugadorRojo = jugadorRojo;
+		this.turno = "rojo";
+		tablero = new Casillero[filas][columnas];
+		
+		for(int i = 0; i<filas; i++){
+			
+			for(int j = 0; j<columnas; j++){
+				
+				tablero[i][j] = Casillero.VACIO;
+			}
+		}
+		
 	}
 
 	/**
@@ -60,8 +72,10 @@ public class CuatroEnLinea {
 	 * @param columna
 	 */
 	public Casillero obtenerCasillero(int fila, int columna) {
+		int fil = fila -1;
+		int col = columna -1;
 		
-		return Casillero.VACIO;
+		return tablero[fil][col];
 	}
 	
 	/**
@@ -72,6 +86,33 @@ public class CuatroEnLinea {
 	 * @param columna
 	 */
 	public void soltarFichaEnColumna(int columna) {
+		
+		int col = columna - 1;
+		int fila = this.filas -1;
+		boolean soltoFicha = false;
+		
+		if(!termino()){
+			
+			while(fila >= 0 && soltoFicha == false){
+				
+				if(this.tablero[fila][col] != Casillero.VACIO){
+					fila --;
+				}else{
+					
+					this.tablero[fila][col] = (this.turno == "amarillo") ? Casillero.AMARILLO : Casillero.ROJO; 
+					soltoFicha = true;
+				}
+				
+			}
+			
+			if(fila == -1){
+				return;
+			}else{
+				cambiarTurno();
+				return;
+			}
+			
+		}
 		
 	}
 	
@@ -99,5 +140,10 @@ public class CuatroEnLinea {
 	public String obtenerGanador() {
 		
 		return null;
+	}
+	
+	private void cambiarTurno(){
+		
+		this.turno = (this.turno == "rojo") ? "amarillo" : "rojo";
 	}
 }
