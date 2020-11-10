@@ -13,7 +13,7 @@ public class CuatroEnLinea {
 	private Casillero[][] tablero;
 	private String jugadorRojo;
 	private String jugadorAmarillo;
-	private String turno;
+	private boolean esTurnoRojo = true;
 
 	/**
 	 * pre : 'filas' y 'columnas' son mayores o iguales a 4.
@@ -34,7 +34,6 @@ public class CuatroEnLinea {
 		this.jugadorAmarillo = jugadorAmarillo;
 		this.jugadorRojo = jugadorRojo;
 		
-		this.turno = "rojo";
 	}
 
 	/**
@@ -89,7 +88,7 @@ public class CuatroEnLinea {
 					fila --;
 				}else{
 					
-					this.tablero[fila][col] = (this.turno == "amarillo") ? Casillero.AMARILLO : Casillero.ROJO; 
+					this.tablero[fila][col] = (this.esTurnoRojo ) ? Casillero.ROJO : Casillero.AMARILLO; 
 					soltoFicha = true;
 				}
 				
@@ -171,7 +170,7 @@ public class CuatroEnLinea {
 	
 	private void cambiarTurno(){
 		
-		this.turno = (this.turno == "rojo") ? "amarillo" : "rojo";
+		this.esTurnoRojo = !this.esTurnoRojo;
 	}
 	
 	/*
