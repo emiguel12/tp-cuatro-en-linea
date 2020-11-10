@@ -33,6 +33,8 @@ public class CuatroEnLinea {
 		
 		this.jugadorAmarillo = jugadorAmarillo;
 		this.jugadorRojo = jugadorRojo;
+		
+		this.turno = "rojo";
 	}
 
 	/**
@@ -60,7 +62,8 @@ public class CuatroEnLinea {
 	 * @param columna
 	 */
 	public Casillero obtenerCasillero(int fila, int columna) {
-		
+		validarFila(fila);
+		validarColumna(columna);
 		return tablero[fila-1][columna-1];
 	}
 	
@@ -72,6 +75,7 @@ public class CuatroEnLinea {
 	 * @param columna
 	 */
 	public void soltarFichaEnColumna(int columna) {
+		validarColumna(columna);
 		
 		int col = columna - 1;
 		int fila = this.contarFilas() -1;
@@ -107,6 +111,19 @@ public class CuatroEnLinea {
 	 * 		 ganó o no existen casilleros vacíos.
 	 */
 	public boolean termino() {
+		int casillerosOcupados = 0;
+		
+		for(int i = 0; i < this.tablero.length; i++){
+			for(int j = 0; j < this.tablero[i].length; j++){
+				if(this.tablero[i][j] != Casillero.VACIO){
+					casillerosOcupados++;
+				}
+			}
+		}
+		
+		if(casillerosOcupados == casillerosTotales()){
+			return true;
+		}
 		
 		return false;
 	}
@@ -155,5 +172,31 @@ public class CuatroEnLinea {
 	private void cambiarTurno(){
 		
 		this.turno = (this.turno == "rojo") ? "amarillo" : "rojo";
+	}
+	
+	/*
+	 * POST: Analiza si la columna ingresada es válida
+	 */
+	private void validarColumna(int columna){
+		if(columna < 1 || columna > contarColumnas()){
+			throw new Error("La columna ingresada ("+columna +") es inválida.");
+			
+		}
+	}
+	/*
+	 *POST: Analiza si la fila ingresada es válida
+	 */
+	private void validarFila(int fila){
+		if(fila < 1 || fila > contarFilas()){
+			throw new Error("La fila ingresada (" + fila + ") es inválida");
+		}
+	}
+	
+	/*
+	 * POST: Devuelve el total de casilleros del tablero
+	 */
+	
+	private int casillerosTotales(){
+		return (contarFilas() * contarColumnas());
 	}
 }
