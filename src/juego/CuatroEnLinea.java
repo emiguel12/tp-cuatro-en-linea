@@ -32,8 +32,7 @@ public class CuatroEnLinea {
 	 * @param jugadorAmarillo
 	 *            : nombre del jugador con fichas amarillas.
 	 */
-	public CuatroEnLinea(int filas, int columnas, String jugadorRojo,
-			String jugadorAmarillo) {
+	public CuatroEnLinea(int filas, int columnas, String jugadorRojo,String jugadorAmarillo) {
 
 		this.crearTablero(filas, columnas);
 
@@ -82,34 +81,22 @@ public class CuatroEnLinea {
 	 * @param columna
 	 */
 	public void soltarFichaEnColumna(int columna) {
-		validarColumna(columna);
-
-		int col = columna - 1;
-		int fila = this.contarFilas() - 1;
-		boolean soltoFicha = false;
-
-
-		if(!termino()){
+		
+		if(!this.termino()&& !this.esColumnaLlena(columna)){
 			
-			while(fila >= 0 && soltoFicha == false){
-				
-				if(this.tablero[fila][col] != Casillero.VACIO){
-					fila --;
-				}else{
-					
-					this.tablero[fila][col] = (this.esTurnoRojo ) ? Casillero.ROJO : Casillero.AMARILLO; 
-
-					soltoFicha = true;
-				}
-
+			
+			int i = 1;
+			while((i!= this.contarFilas()) && (this.obtenerCasillero(i+1,columna) == Casillero.VACIO)){
+				 i++;
 			}
 
-			if (fila == -1) {
-				return;
-			} else {
-				cambiarTurno();
-				return;
-			}
+			this.tablero[i-1][columna-1] = this.esTurnoRojo ? Casillero.ROJO : Casillero.AMARILLO;
+			
+		    if (this.comprobar(i, columna, this.tablero[i-1][columna-1]))
+	    	{
+		    	this.ganador = this.esTurnoRojo ? this.jugadorRojo : this.jugadorAmarillo;
+	    	}
+			this.cambiarTurno();				
 
 		}
 
@@ -144,11 +131,11 @@ public class CuatroEnLinea {
 	 * post: indica si el juego terminó y tiene un ganador.
 	 */
 	public boolean hayGanador() {
-		if(ganadorVertical()){
-			return true;
+		if(this.ganador == null)
+		{
+			return false;
 		}
-		 
-		return false;
+		return true;
 	}
 
 	/**
@@ -187,6 +174,14 @@ public class CuatroEnLinea {
 		
 		this.esTurnoRojo = !this.esTurnoRojo;
 
+	}
+	
+	private boolean esColumnaLlena(int columna){
+		
+		if(this.obtenerCasillero(1, columna) != Casillero.VACIO){
+			return true;
+		}
+		return false;
 	}
 
 	/*
@@ -259,4 +254,58 @@ public class CuatroEnLinea {
 		return false;
 		}
 	
+	private boolean lineaVertical(int fila, int columna, Casillero casillero){
+	
+		int filaMin = (fila - 3) >= 1 ? fila-3 : 1;
+		int filaMax = (fila + 3) <= this.contarFilas() ? fila+3:this.contarFilas();
+		int cantFichasJuntas = 0;
+		
+		for (int i = filaMin; i <= filaMax; i++) {
+			
+			if(this.obtenerCasillero(i, columna) == casillero){
+				cantFichasJuntas++;
+			}else{
+				cantFichasJuntas = cantFichasJuntas ==4 ? 4:0;
+			}
+			
+		}
+		
+		if(cantFichasJuntas==4 ){
+			return true;
+		}
+		return false;
+		
+	}
+	
+	private boolean lineaHorizontal(int fila, int columna, Casillero casillero){
+		
+		int columnaMin = (columna - 3) >= 1 ? columna-3 : 1;
+		int columnaMax = (columna + 3) <= this.contarColumnas() ? columna+3 : this.contarColumnas();
+		int cantFichasJuntas = 0;
+		
+		for (int i = columnaMin; i <= columnaMax; i++) {
+			
+			if(this.obtenerCasillero(fila, i) == casillero){
+				cantFichasJuntas++;
+			}else{
+				cantFichasJuntas = cantFichasJuntas ==4 ?  4:0 ;
+			}
+			
+		}
+		
+		if(cantFichasJuntas==4 ){
+			return true;
+		}
+		return false;
+		
+	}
+    
+	private boolean comprobar(int fila,int columna, Casillero casillero){
+		
+		return this.lineaHorizontal(fila, columna, casillero) || this.lineaVertical(fila, columna, casillero);
+		
+		
+	}
+	
+
 }
