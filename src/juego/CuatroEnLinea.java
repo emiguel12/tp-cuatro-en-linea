@@ -213,7 +213,7 @@ public class CuatroEnLinea {
 	}
 
 
-	private boolean ganadorVertical() {
+	/*private boolean ganadorVertical() {
 		int casillerosRojosSeguidos = 0;
 		int casillerosAmarillosSeguidos = 0;
 		
@@ -253,7 +253,7 @@ public class CuatroEnLinea {
 		}
 		return false;
 		}
-	
+	*/
 	private boolean lineaVertical(int fila, int columna, Casillero casillero){
 	
 		int filaMin = (fila - 3) >= 1 ? fila-3 : 1;
@@ -265,7 +265,7 @@ public class CuatroEnLinea {
 			if(this.obtenerCasillero(i, columna) == casillero){
 				cantFichasJuntas++;
 			}else{
-				cantFichasJuntas = cantFichasJuntas ==4 ? 4:0;
+				cantFichasJuntas = cantFichasJuntas == 4 ? 4:0;
 			}
 			
 		}
@@ -288,21 +288,70 @@ public class CuatroEnLinea {
 			if(this.obtenerCasillero(fila, i) == casillero){
 				cantFichasJuntas++;
 			}else{
-				cantFichasJuntas = cantFichasJuntas ==4 ?  4:0 ;
+				cantFichasJuntas = (cantFichasJuntas == 4) ?  4:0 ;
 			}
 			
 		}
 		
-		if(cantFichasJuntas==4 ){
+		if(cantFichasJuntas == 4){
 			return true;
 		}
 		return false;
 		
 	}
-    
+	// CUIDADO, ROMPE TODO 
+private boolean lineaDiagonal(int fila, int columna, Casillero casillero){
+		
+		//Variables para columnas
+		int columnaMin = (columna - 3) >= 1 ? columna-3 : 1;
+		int columnaMax = (columna + 3) <= this.contarColumnas() ? columna+3 : this.contarColumnas();
+		
+		//Variables para filas
+		int filaMin = (fila - 3) >= 1 ? fila-3 : 1;
+		int filaMax = (fila + 3) <= this.contarFilas() ? fila+3 : this.contarFilas();
+		
+		//Contador de fichas
+		int cantFichasJuntas = 0; 
+		
+		//Verificador por filas
+		for( int i = filaMin; i <= filaMax; i++){
+			//Verificador por columnas
+			for(int j = columnaMin; i <= columnaMax; j++){
+				
+				//Comprobante de que las filas no exceden el tablero
+				if( (fila - i >= filaMin) && (fila + i <= filaMax) && 
+						//Comprobante de que las columnas no exceden el tablero
+						(columna - j >= columnaMin) && (columna + j <= columnaMax)){
+				
+					//Comprobador de que es la misma ficha diagonal izquierda para abajo
+				if(this.obtenerCasillero(fila - i, columna - j) == casillero  ||
+						//Comprobador de que es la misma ficha diagonal izquierda para arriba
+						this.obtenerCasillero(fila - i, columna + j) == casillero ||
+						//Comprobador de que es la misma ficha diagonal derecha para abajo
+						this.obtenerCasillero(fila - i, columna - j) == casillero ||
+						//Comprobador de que es la misma ficha diagonal derecha para arriba
+						this.obtenerCasillero(fila + i, columna + j) == casillero){
+					cantFichasJuntas++;
+					}else {
+					cantFichasJuntas = (cantFichasJuntas == 4) ? 4:0;
+				}
+			}
+		}
+		}
+			
+		
+		if(cantFichasJuntas == 4){
+			return true;
+		} else{
+
+		return false;
+	}
+}
+ 
 	private boolean comprobar(int fila,int columna, Casillero casillero){
 		
-		return this.lineaHorizontal(fila, columna, casillero) || this.lineaVertical(fila, columna, casillero);
+		return (this.lineaHorizontal(fila, columna, casillero) || this.lineaVertical(fila, columna, casillero) || 
+				lineaDiagonal(fila, columna, casillero));
 		
 		
 	}
