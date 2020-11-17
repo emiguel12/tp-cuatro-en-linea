@@ -1,0 +1,42 @@
+private boolean lineaDiagonal(int fila, int columna, Casillero casillero){
+		
+		//Variables para columnas
+		int columnaMin = (columna - 3) >= 1 ? columna-3 : 1;
+		int columnaMax = (columna + 3) <= this.contarColumnas() ? columna+3 : this.contarColumnas();
+		
+		//Variables para filas
+		int filaMin = (fila - 3) >= 1 ? fila-3 : 1;
+		int filaMax = (fila + 3) <= this.contarFilas() ? fila+3 : this.contarFilas();
+		
+		//Contador de fichas
+		int cantFichasJuntas = 0; 
+		
+		//Verificador por filas
+		for(int i = 0; i <= 3; i++){
+				int columnaMenosI = (columna - i) >= columnaMin ? (columna-i) : filaMin;
+				int columnaMasI = (columna + i) <= columnaMax ? (columna + i) : columnaMax;
+				int filaMenosI = (fila - i) >= filaMin ? (fila - i) : columnaMin;
+				int filaMasI = (fila + i) <= filaMax ? (fila + i) : filaMax;
+				
+					//Comprobador de que es la misma ficha diagonal izquierda para abajo
+				if(this.obtenerCasillero(filaMasI, columnaMenosI) == casillero ||
+						//Comprobador de que es la misma ficha diagonal izquierda para arriba
+						this.obtenerCasillero(filaMenosI, columnaMenosI) == casillero ||
+						//Comprobador de que es la misma ficha diagonal derecha para abajo
+						this.obtenerCasillero(filaMasI, columnaMasI) == casillero ||
+						//Comprobador de que es la misma ficha diagonal derecha para arriba
+						this.obtenerCasillero(filaMenosI, columnaMenosI) == casillero){
+					cantFichasJuntas++;
+					}else {
+					cantFichasJuntas = (cantFichasJuntas == 4) ? 4:0;
+				}
+			
+		}
+			
+		
+		if(cantFichasJuntas == 4){
+			return true;
+		} else{
+
+		return false;
+	}
