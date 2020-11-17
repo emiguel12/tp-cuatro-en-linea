@@ -314,29 +314,26 @@ private boolean lineaDiagonal(int fila, int columna, Casillero casillero){
 		int cantFichasJuntas = 0; 
 		
 		//Verificador por filas
-		for( int i = filaMin; i <= filaMax; i++){
-			//Verificador por columnas
-			for(int j = columnaMin; i <= columnaMax; j++){
-				
-				//Comprobante de que las filas no exceden el tablero
-				if( (fila - i >= filaMin) && (fila + i <= filaMax) && 
-						//Comprobante de que las columnas no exceden el tablero
-						(columna - j >= columnaMin) && (columna + j <= columnaMax)){
+		for(int i = 0; i <= 3; i++){
+				int columnaMenosI = (columna - i) >= columnaMin ? (columna-i) : filaMin;
+				int columnaMasI = (columna + i) <= columnaMax ? (columna + i) : columnaMax;
+				int filaMenosI = (fila - i) >= filaMin ? (fila - i) : columnaMin;
+				int filaMasI = (fila + i) <= filaMax ? (fila + i) : filaMax;
 				
 					//Comprobador de que es la misma ficha diagonal izquierda para abajo
-				if(this.obtenerCasillero(fila - i, columna - j) == casillero  ||
+				if(this.obtenerCasillero(filaMasI, columnaMenosI) == casillero ||
 						//Comprobador de que es la misma ficha diagonal izquierda para arriba
-						this.obtenerCasillero(fila - i, columna + j) == casillero ||
+						this.obtenerCasillero(filaMenosI, columnaMenosI) == casillero ||
 						//Comprobador de que es la misma ficha diagonal derecha para abajo
-						this.obtenerCasillero(fila - i, columna - j) == casillero ||
+						this.obtenerCasillero(filaMasI, columnaMasI) == casillero ||
 						//Comprobador de que es la misma ficha diagonal derecha para arriba
-						this.obtenerCasillero(fila + i, columna + j) == casillero){
+						this.obtenerCasillero(filaMenosI, columnaMenosI) == casillero){
 					cantFichasJuntas++;
 					}else {
 					cantFichasJuntas = (cantFichasJuntas == 4) ? 4:0;
 				}
-			}
-		}
+			
+	//	}
 		}
 			
 		
