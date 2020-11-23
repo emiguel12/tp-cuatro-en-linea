@@ -321,5 +321,13 @@ private boolean lineaDiagonalAscendente(int fila, int columna, Casillero casille
 		
 	}
 	
+	public String obtenerJugadorAmarillo(){
+		return jugadorAmarillo;
+	}
+	
+	public String obtenerJugadorRojo(){
+		return jugadorRojo;
+	}
+	
 
 }
