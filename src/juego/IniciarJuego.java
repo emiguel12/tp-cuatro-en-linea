@@ -15,7 +15,7 @@ public class IniciarJuego implements EventHandler<ActionEvent> {
 	@Override
 	public void handle(ActionEvent event) {
 
-		aplicacion.iniciar();
+		aplicacion.iniciar(aplicacion.nombreJugadorRojo, aplicacion.nombreJugadorAmarillo);
 	}
 
 }
