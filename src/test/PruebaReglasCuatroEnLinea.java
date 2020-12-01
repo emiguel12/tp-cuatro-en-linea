@@ -201,26 +201,20 @@ public class PruebaReglasCuatroEnLinea {
 		
 		asertarQueElGanadorEs("Marce");
 	}
-	
 	@Test
 	public void empatanEnTableroDe5Por6() {
-	
 		juego = new CuatroEnLinea(5, 6, "Jime", "Nico");
-		fueronSoltadasFichasEnColumnas(1,2,3,4,4,3,2,1,4,3,2,1,1,2,3,4);
-		
-		juego.soltarFichaEnColumna(4);
-
+		fueronSoltadasFichasEnColumnas(1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1, 6,
+				5, 4, 3, 2, 1, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5);
+		juego.soltarFichaEnColumna(6);
 		asertarQueEmpataron();
 	}
-	
 	@Test
-	public void empatanEnTableroDe4Por() {
-	
+	public void empatanEnTableroDe4Por4() {
 		juego = new CuatroEnLinea(4, 4, "Nati", "Fabi");
-		fueronSoltadasFichasEnColumnas();
-		
+		fueronSoltadasFichasEnColumnas(1, 2, 3, 4, 4, 3, 2, 1, 4, 3, 2, 1, 4,
+				3, 2);
 		juego.soltarFichaEnColumna(1);
-
 		asertarQueEmpataron();
 	}
 	
@@ -230,6 +224,7 @@ public class PruebaReglasCuatroEnLinea {
 		assertFalse("no hay ganador", juego.hayGanador());
 		assertNull("ganador", juego.obtenerGanador());
 	}
+	
 	
 	private void asertarQueElGanadorEs(String ganadorEsperado) {
 		
