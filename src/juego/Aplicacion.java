@@ -24,20 +24,13 @@ public class Aplicacion extends Application {
 	
 	private GridPane grilla;
 	
-	private TextField campoNombreJugadorUno;
-	private TextField campoNombreJugadorDos;
+	private TextField campoNombreJugadorRojo;
+	private TextField campoNombreJugadorAmarillo;
 
 	private TextField campoColumnas;
 	private TextField campoFilas;
-	
-	private Button colorJugadorUno;
-	private Button colorJugadorDos;
+
 	private Button botonIniciar;
-	
-	public static String colorUno = "Rojo";
-	public  static String colorDos = "Amarillo";
-	public String nombreJugadorRojo;
-	public String nombreJugadorAmarillo;
 
 	@Override
 	public void start(Stage escenarioPrincipal) {
@@ -60,18 +53,13 @@ public class Aplicacion extends Application {
 		Text textoTitulo = new Text(TITULO);
 		textoTitulo.setFont(new Font(16));
 		
-
-		
 		crearControles();
 
 		grilla.add(textoTitulo, 0, 0, 2, 1);
-		grilla.add(new Label("Color del Jugador"), 2, 0);
-		grilla.add(new Label("Jugador Uno"), 0, 1);
-		grilla.add(campoNombreJugadorUno, 1, 1);
-		grilla.add(colorJugadorUno, 2, 1);
-		grilla.add(new Label("Jugador Dos"), 0, 2);
-		grilla.add(campoNombreJugadorDos, 1, 2);
-		grilla.add(colorJugadorDos, 2, 2);
+		grilla.add(new Label("Jugador Rojo"), 0, 1);
+		grilla.add(campoNombreJugadorRojo, 1, 1);
+		grilla.add(new Label("Jugador Amarillo"), 0, 2);
+		grilla.add(campoNombreJugadorAmarillo, 1, 2);
 		grilla.add(new Label("Filas"), 0, 3);
 		grilla.add(campoFilas, 1, 3);
 		grilla.add(new Label("Columnas"), 0, 4);
@@ -84,19 +72,14 @@ public class Aplicacion extends Application {
 
 	private void crearControles() {
 
-		campoNombreJugadorUno = new TextField("Uno");
-		campoNombreJugadorDos = new TextField("Dos");
+		campoNombreJugadorRojo = new TextField("rojo");
+		campoNombreJugadorAmarillo = new TextField("amarillo");
 		
 		campoColumnas = new TextField("7");
 		campoFilas = new TextField("7");
 		
 		botonIniciar = new Button("Iniciar");
 		botonIniciar.setOnAction(new IniciarJuego(this));
-		
-		colorJugadorUno = new Button(colorUno);
-		colorJugadorUno.setOnAction(new CambiarColores(this));
-		colorJugadorDos = new Button(colorDos);
-		colorJugadorDos.setOnAction(new CambiarColores(this));
 	}
 	
 	/**
@@ -104,9 +87,10 @@ public class Aplicacion extends Application {
 	 * 		 y comienza su ejecución.
 	 * 
 	 */
-	public void iniciar(String nombreJugadorRojo, String nombreJugadorAmarillo) {
+	public void iniciar() {
 		
-		obtenerNombres();
+		String nombreJugadorRojo = campoNombreJugadorRojo.getText();
+		String nombreJugadorAmarillo = campoNombreJugadorAmarillo.getText();
 		int filas = Integer.parseInt(campoFilas.getText());
 		int columnas = Integer.parseInt(campoColumnas.getText());
 		
@@ -122,25 +106,5 @@ public class Aplicacion extends Application {
 		Thread.setDefaultUncaughtExceptionHandler(new MostrarError());
 		
 		launch(args);
-	}
-	
-	public void AlternarColores(){
-		if(colorUno == "Rojo"){
-			colorJugadorUno.setText("Amarillo");
-			colorUno = "Amarillo";
-			colorJugadorDos.setText("Rojo"); 
-			colorDos = "Rojo";
-		}else if (colorUno == "Amarillo"){
-			colorJugadorUno.setText("Rojo");
-			colorUno = "Rojo";
-			colorJugadorDos.setText("Amarillo"); 
-			colorDos = "Amarillo";
-			
-		}	
-	}
-	
-	private void obtenerNombres(){
-		nombreJugadorRojo = (colorUno == "Rojo") ? campoNombreJugadorUno.getText() : campoNombreJugadorDos.getText();
-		nombreJugadorAmarillo = (colorDos == "Rojo") ? campoNombreJugadorDos.getText() : campoNombreJugadorUno.getText();
 	}
 }

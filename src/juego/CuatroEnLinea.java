@@ -14,7 +14,7 @@ public class CuatroEnLinea {
 	private String jugadorRojo;
 	private String jugadorAmarillo;
 	private String ganador;
-	private boolean esTurnoRojo;
+	private boolean esTurnoRojo = true;
 
 
 	/**
@@ -35,9 +35,6 @@ public class CuatroEnLinea {
 	public CuatroEnLinea(int filas, int columnas, String jugadorRojo,String jugadorAmarillo) {
 
 		this.crearTablero(filas, columnas);
-		
-		esTurnoRojo = (Aplicacion.colorUno == "Rojo") ? true : false;
-
 		this.jugadorAmarillo = jugadorAmarillo;
 		this.jugadorRojo = jugadorRojo;
 
